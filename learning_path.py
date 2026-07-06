@@ -36,6 +36,8 @@ def recommend_learning_path(topic):
     Mention useful skills to learn at each level.
     """
 
-    response = model.generate_content(prompt)
-
-    return response.text
+    try:
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        return str(e)

@@ -12,10 +12,6 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 def answer_question(question):
-    """
-    Answers educational questions.
-    """
-
     prompt = f"""
 Answer the following question in plain text.
 
@@ -26,6 +22,8 @@ Question:
 {question}
 """
 
-    response = model.generate_content(prompt)
-
-    return response.text
+    try:
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        return str(e)

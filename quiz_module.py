@@ -26,12 +26,13 @@ def generate_quiz(topic):
     {topic}
 
     Rules:
-    1. Each question must have four options:
-       A, B, C, D
+    1. Each question must have four options: A, B, C, D.
     2. Mention the correct answer.
     3. Keep questions suitable for students.
     """
 
-    response = model.generate_content(prompt)
-
-    return response.text
+    try:
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        return str(e)
