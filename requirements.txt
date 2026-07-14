@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-google-generativeai
-python-dotenv
-transformers
-torch
-jinja2
-python-multipart
